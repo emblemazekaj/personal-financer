@@ -1,0 +1,76 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    padding: 30px;
+    background-color: #8bc4a8 !important;
+}
+
+#expense-img {
+    width: 100%;
+    height: auto;
+}
+
+.btn-primary {
+    background-color: #555968 !important;
+    border-color: #262939 !important;
+}
+
+.v-line{
+    height: 94%;
+    width: 1px;
+    background-color: #2f5744;
+}
+
+.card {
+    border: none;
+    background-color: transparent;
+}
+
+.card-body {
+    background-color: #f8f6f4;
+    border-radius: 25px;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+.card-title {
+    text-transform: uppercase; 
+}
+.card-title span {
+    font-weight: 800;
+}
+
+.loginHeader {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Verdana, sans-serif;
+    color: #41795e;
+}
+
+.buttonWrapper {
+    width: 100% !important;
+    text-align: center;
+}
+
+.buttonWrapper button[type="submit"] {
+    border-color: #41795e !important;
+    background-color: #41795e !important;
+    width: 50% !important;
+}
+
+.buttonWrapper button[type="submit"]:hover {
+    background-color: #2f5744 !important;
+    border-color: #2f5744 !important;
+}
+
+.logRegForm {
+    display: flex;
+    align-items: center;
+}
+
+.formWrapper {
+    width: 90%;
+}
