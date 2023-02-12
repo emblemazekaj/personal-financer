@@ -8,18 +8,16 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from django.core.exceptions import ValidationError
 
 
-# Timestamp model to add created and modified field
-class TimeStampedModel(models.Model):
+class BaseModel(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     class Meta:
         abstract = True
 
 
-class Budget(TimeStampedModel):
-    user = models.ForeignKey(User, related_name='budget',
-                             on_delete=models.CASCADE)
+class Budget(BaseModel):
     budget = models.DecimalField(max_digits=8, decimal_places=2)
     month = models.PositiveSmallIntegerField(default=date.today().month, validators=[
         MaxValueValidator(12), MinValueValidator(1)])
@@ -64,9 +62,7 @@ class UserExpensesManager(models.Manager):
         return self.get_queryset().top_10_month_expenses(user, month, year)
 
 
-class Expense(TimeStampedModel):
-    user = models.ForeignKey(User, related_name='expenses',
-                             on_delete=models.CASCADE)
+class Expense(BaseModel):
     name = models.CharField(max_length=72)
     price = models.DecimalField(max_digits=8, decimal_places=2)
     photo = models.ImageField(upload_to='', null=True, blank=True)
